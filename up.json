@@ -1,0 +1,50 @@
+{
+  "name": "up-api",
+  "profile": "default",
+  "regions": ["us-east-1"],
+  "hooks": {
+    "build": "npm run build",
+    "clean": "rm -fr build"
+  },
+  "lambda": {
+    "runtime": "nodejs12.x",
+    "vpc": {
+      "subnets": [],
+      "security_groups": []
+    },
+    "layers": [],
+    "policy": []
+  },
+  "cors": {
+    "enable": true
+  },
+  "proxy": {
+    "timeout": 20,
+    "listen_timeout": 5,
+    "command": "npm run start:prod"
+  },
+  "stages": {
+    "production": {
+      "lambda": {
+        "memory": 1024
+      }
+    },
+    "staging": {
+      "lambda": {
+        "memory": 650
+      }
+    },
+    "development": {
+      "hooks": {
+        "build": "babel-node ./src -o ./build",
+        "clean": "rm -fr build"
+      },
+      "proxy": {
+        "command": "npm run start:dev"
+      },
+      "lambda": {
+        "memory": 500
+      }
+    }
+  }
+}

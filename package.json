@@ -1,0 +1,26 @@
+{
+  "name": "uptest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon --exec babel-node src/app.js",
+    "start:prod": "node ./build/app.js",
+    "build": "babel src -d build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "babel-plugin-transform-promise-to-bluebird": "^2.0.0",
+    "nodemon": "^2.0.6"
+  }
+}
