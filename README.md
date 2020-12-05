@@ -19,7 +19,7 @@ Up requires a [up.json](./up.json) file to get started.
 
 Up also assumes you have the AWS CLI installed.
 
-### Create your `~./aws/credential` profile
+### Create your `~./aws/credentials` profile
 
 ```
 [default]
