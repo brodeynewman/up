@@ -34,6 +34,14 @@ Up allows for environment-based lambda configuration as well.
 
 In my example, I'm simply changing the memory allocation -- but you can modify any of the [lambda](https://apex.sh/docs/up/configuration/#lambda_settings) settings based on your environments.
 
-## todo:
+## Configuring CI
 
-1. Add CI with actions
+The GitHub actions require two secrets to be configured in your repository.
+
+```
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+```
+
+Once these are configured, push to either `staging` or `master` branches to initiate CI deploys.
