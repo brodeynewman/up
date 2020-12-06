@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [ staging ]
 
 jobs:
   build:
@@ -16,6 +16,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+
+      - name: Run Babel
+        run: |
+          npm install
+          npm run build
 
       - name: Deploy
         uses: apex/actions/up@v0.5.1
